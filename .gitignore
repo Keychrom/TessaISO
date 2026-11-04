@@ -1,0 +1,4 @@
+dist/
+*.iso
+*.sha256
+.zig-cache/
