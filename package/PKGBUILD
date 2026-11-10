@@ -28,6 +28,7 @@ package() {
     install -Dm644 session/tessa.desktop \
         "$pkgdir/usr/share/wayland-sessions/tessa.desktop"
     install -Dm644 config/config.example "$pkgdir/usr/share/tessa/config.example"
+    install -Dm644 config/panel.example "$pkgdir/usr/share/tessa/panel.example"
     install -Dm644 examples/themes/vermilion-ink/theme.conf \
         "$pkgdir/usr/share/tessa/themes/vermilion-ink/theme.conf"
     install -Dm644 packaging/portal/tessa.portal \

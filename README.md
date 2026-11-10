@@ -38,6 +38,7 @@ Output: `dist/iso/tessa-linux-<date>-x86_64.iso`.
 ## What is included
 
 - Tessa compositor, panel, launcher, notifications, portals
+- Split Tessa config (`config` + `panel.conf`) with Japanese panel defaults
 - Calamares offline installer (bundled rootfs, `unpackfsc`)
 - Japanese locale, timezone, keyboard, Noto CJK, fcitx5 + Mozc
 - Firefox, Thunar, imv, mousepad, file-roller, pavucontrol, kitty
