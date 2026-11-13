@@ -92,6 +92,11 @@ cp "$ISO_DIR/package/PKGBUILD" "$TESSA_PKG/PKGBUILD"
 )
 cp "$TESSA_PKG"/*.pkg.tar.zst "$PKG_DIR/"
 
+# makepkg output is not bit-reproducible; drop stale cache entries so pacman
+# fetches the freshly built package instead of failing its checksum check.
+sudo rm -f "$PACMAN_CACHE_DIR"/tessa-iso-*.pkg.tar.zst \
+    "$PACMAN_CACHE_DIR"/calamares-*.pkg.tar.zst
+
 if [ "$SKIP_CALAMARES" -eq 0 ]; then
     log "building calamares from the AUR"
     CALAMARES_SRC=$BUILD_DIR/aur-calamares
