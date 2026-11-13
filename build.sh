@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# SPDX-License-Identifier: GPL-3.0-or-later
 # Build a Tessa Linux ISO: Arch base + Tessa session + Japanese input,
 # installed offline by Calamares from a bundled rootfs.
 #
@@ -155,6 +156,10 @@ sudo install -Dm644 "$ISO_DIR/profile/airootfs/etc/profile.d/tessa-ime.sh" \
     "$ROOTFS_DIR/etc/profile.d/tessa-ime.sh"
 sudo install -Dm644 "$ISO_DIR/profile/airootfs/etc/xdg/autostart/fcitx5-tessa.desktop" \
     "$ROOTFS_DIR/etc/xdg/autostart/fcitx5-tessa.desktop"
+sudo install -Dm644 "$ISO_DIR/LICENSE" \
+    "$ROOTFS_DIR/usr/share/licenses/tessa-linux-iso/LICENSE"
+sudo install -Dm644 "$ISO_DIR/NOTICE.md" \
+    "$ROOTFS_DIR/usr/share/licenses/tessa-linux-iso/NOTICE.md"
 sudo install -m 0755 "$ISO_DIR/rootfs/setup.sh" "$ROOTFS_DIR/rootfs-setup.sh"
 sudo arch-chroot "$ROOTFS_DIR" /rootfs-setup.sh
 sudo rm -f "$ROOTFS_DIR/rootfs-setup.sh"

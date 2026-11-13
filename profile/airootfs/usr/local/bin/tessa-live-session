@@ -1,4 +1,5 @@
 #!/bin/sh
+# SPDX-License-Identifier: GPL-3.0-or-later
 # Live session wrapper. The second boot entry sets tessa.software=1 so systems
 # without a usable GPU renderer can still reach the desktop and installer.
 if grep -q 'tessa.software=1' /proc/cmdline; then

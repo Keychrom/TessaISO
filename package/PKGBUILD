@@ -1,5 +1,7 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
 # Maintainer: Tessa contributors <maintainers@tessa.invalid>
 # Source tarball is produced by build.sh from a Tessa checkout.
+# The packaged Tessa desktop is MIT; the ISO tooling around it is GPL-3.0-or-later.
 pkgname=tessa-iso
 pkgver=0.2.5
 pkgrel=1

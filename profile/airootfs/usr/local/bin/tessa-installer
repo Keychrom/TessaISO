@@ -1,4 +1,5 @@
 #!/bin/sh
+# SPDX-License-Identifier: GPL-3.0-or-later
 # Launch Calamares from the live Tessa session. The live user has passwordless
 # sudo; running as root is needed for partitioning and chroot work.
 set -eu

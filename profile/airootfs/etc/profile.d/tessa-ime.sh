@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
 GTK_IM_MODULE=fcitx
 QT_IM_MODULE=fcitx
 XMODIFIERS=@im=fcitx
