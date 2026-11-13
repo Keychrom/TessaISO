@@ -22,6 +22,7 @@ BUILD_DIR=${TESSA_ISO_BUILD:-/var/tmp/tessa-iso}
 CACHE_DIR=${TESSA_ISO_CACHE:-/var/cache/tessa-iso}
 REPO_DIR=$BUILD_DIR/repo
 PKG_DIR=$CACHE_DIR/packages
+PACMAN_CACHE_DIR=$CACHE_DIR/pacman
 PROFILE_DIR=$BUILD_DIR/profile
 WORK_DIR=$BUILD_DIR/work
 OUT_DIR=${TESSA_ISO_OUT:-$ISO_DIR/dist/iso}
@@ -74,8 +75,8 @@ fi
 [ -f "$TESSA_SRC/src/main.zig" ] || die "TESSA_SRC is not a Tessa checkout: $TESSA_SRC"
 
 sudo rm -rf "$BUILD_DIR"
-sudo install -d -o "$(id -u)" -g "$(id -g)" "$CACHE_DIR" "$PKG_DIR"
-mkdir -p "$BUILD_DIR" "$REPO_DIR" "$OUT_DIR" "$BUILD_DIR/pacman-cache"
+sudo install -d -o "$(id -u)" -g "$(id -g)" "$CACHE_DIR" "$PKG_DIR" "$PACMAN_CACHE_DIR"
+mkdir -p "$BUILD_DIR" "$REPO_DIR" "$OUT_DIR"
 
 log "building tessa-iso package"
 TESSA_PKG=$BUILD_DIR/pkg-tessa
@@ -117,7 +118,7 @@ write_pacman_conf() {
 HoldPkg = pacman glibc
 Architecture = auto
 SigLevel = Never
-CacheDir = $BUILD_DIR/pacman-cache
+CacheDir = $PACMAN_CACHE_DIR
 
 [core]
 Server = https://geo.mirror.pkgbuild.com/\$repo/os/\$arch
@@ -224,7 +225,7 @@ Server = https://mirror.rackspace.com/archlinux/$repo/os/$arch
 Server = https://geo.mirror.pkgbuild.com/$repo/os/$arch
 Server = https://mirror.rackspace.com/archlinux/$repo/os/$arch
 
-[tessa-local]
+[tessa-iso]
 SigLevel = Optional TrustAll
 Server = file:///usr/share/tessa-installer/repo
 EOF
