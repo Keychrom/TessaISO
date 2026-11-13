@@ -41,6 +41,7 @@ pipewire-alsa
 wireplumber
 alsa-utils
 networkmanager
+curl
 wpa_supplicant
 bluez
 bluez-utils
