@@ -1,4 +1,5 @@
 base
+archlinux-keyring
 linux
 linux-firmware
 sof-firmware

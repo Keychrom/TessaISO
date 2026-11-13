@@ -3,9 +3,10 @@
 Build an Arch Linux based, Japanese-ready **Tessa Linux** live/installer ISO.
 
 The ISO boots into the Tessa Wayland desktop, includes Calamares with a
-Japanese UI, and installs offline from a bundled rootfs. The installed system
-uses GRUB on both UEFI and BIOS, SDDM, `ja_JP.UTF-8`, Noto CJK fonts, and
-fcitx5 + Mozc.
+Japanese UI, and installs the system from the Arch mirrors. Installation is
+online-only: Calamares checks connectivity before partitioning and downloads
+the target packages with `pacstrap`. The installed system uses GRUB on both
+UEFI and BIOS, SDDM, `ja_JP.UTF-8`, Noto CJK fonts, and fcitx5 + Mozc.
 
 ## Build
 
@@ -39,13 +40,13 @@ Output: `dist/iso/tessa-linux-<date>-x86_64.iso`.
 
 - Tessa compositor, panel, launcher, notifications, portals
 - Split Tessa config (`config` + `panel.conf`) with Japanese panel defaults
-- Calamares offline installer (bundled rootfs, `unpackfsc`)
+- Calamares online installer (`pacstrap` from the Arch mirrors; the Tessa
+  package itself ships on the ISO in a local repository)
 - Japanese locale, timezone, keyboard, Noto CJK, fcitx5 + Mozc
 - Firefox, Thunar, imv, mousepad, file-roller, pavucontrol, kitty
 - PipeWire, NetworkManager, Bluetooth
 - Online-only installation: Calamares requires internet access before the
   install sequence can start and re-checks connectivity before partitioning
-- Optional package update during install when the network is available
 
 ## License
 
@@ -62,11 +63,12 @@ their own licenses, with license texts installed under
 
 ## Notes
 
-- The ISO is about 3.4 GB.
-- **Installation requires a working internet connection.** The bundled rootfs
-  is still used, but Calamares blocks offline installs (welcome check and a
-  pre-partition connectivity check). Use the installer's network button to
-  connect Wi-Fi if needed.
+- The ISO is about 1.9 GB.
+- **Installation requires a working internet connection.** Calamares blocks
+  offline installs (welcome check and a pre-partition connectivity check) and
+  downloads the target system from the Arch mirrors, which takes roughly
+  2.5–3.5 GB depending on the package set. Use the installer's network button
+  to connect Wi-Fi if needed.
 - It is **not Secure Boot signed**; disable Secure Boot or enroll your own keys.
 - Verified in VirtualBox on UEFI and BIOS, including live desktop, install,
   GRUB boot, SDDM login, locale, and input method.

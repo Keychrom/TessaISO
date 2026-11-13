@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 # SPDX-License-Identifier: GPL-3.0-or-later
-# Runs inside the target rootfs chroot during the ISO build.
+# Runs inside the freshly installed target chroot; Calamares executes it
+# through install-target.sh after pacstrap has populated the system.
 set -euo pipefail
+
+# The keyring is copied from the live environment by pacstrap; refresh the
+# packaged keys so the new system can update right after the first boot.
+pacman-key --populate archlinux || true
 
 ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 hwclock --systohc || true

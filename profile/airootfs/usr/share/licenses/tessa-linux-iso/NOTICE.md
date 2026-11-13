@@ -15,7 +15,7 @@ license and are included here under the same terms.
 | Tessa compositor, panel, launcher, tools | MIT | https://github.com/Keychrom/Tessa |
 | Archiso-derived profile and boot menu files | GPL-3.0-or-later | https://gitlab.archlinux.org/archlinux/archiso |
 | Calamares (built from the AUR) | GPL-3.0-or-later | https://github.com/calamares/calamares |
-| Arch Linux packages bundled in the ISO | each package's own license | https://archlinux.org/packages/ |
+| Arch Linux packages in the live ISO | each package's own license | https://archlinux.org/packages/ |
 
 The Tessa source itself remains MIT-licensed. The `tessa-iso` package in
 `package/PKGBUILD` therefore declares `license=('MIT')` for the packaged
@@ -24,7 +24,9 @@ desktop. The ISO build tooling around it is GPL-3.0-or-later.
 Arch packages usually install their license texts under
 `/usr/share/licenses/<package>/`. Tessa's MIT license is installed by the
 `tessa-iso` package. A copy of this notice and the GPL text is placed at
-`/usr/share/licenses/tessa-linux-iso/` in the live and installed systems.
+`/usr/share/licenses/tessa-linux-iso/` in the live system and in every system
+installed from the ISO. The installer downloads the remaining target packages
+directly from the Arch Linux mirrors.
 
 ## Source code offer
 
@@ -35,8 +37,7 @@ components, on physical media or by download, for no more than the cost of
 physically performing the distribution.
 
 Request source through https://github.com/Keychrom/TessaISO/issues (state the
-ISO version and the component) or the contact address in the repository
-profile. The preferred source locations are:
+ISO version and the component). The preferred source locations are:
 
 - Tessa: https://github.com/Keychrom/Tessa
 - TessaISO: https://github.com/Keychrom/TessaISO
