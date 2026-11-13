@@ -18,7 +18,7 @@ sha256sums=('SKIP')
 
 build() {
     cd "$srcdir/tessa"
-    ./scripts/build.sh -Doptimize=ReleaseSafe -Dscenefx=true --prefix "$srcdir/out"
+    ./scripts/build.sh -Doptimize=ReleaseSafe -Dscenefx=true -Dcpu=baseline --prefix "$srcdir/out"
 }
 
 package() {
