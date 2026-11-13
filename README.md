@@ -69,8 +69,12 @@ their own licenses, with license texts installed under
   downloads the target system from the Arch mirrors, which takes roughly
   2.5–3.5 GB depending on the package set. Use the installer's network button
   to connect Wi-Fi if needed.
+- Tessa is built with `-Dcpu=baseline` so the packaged binaries do not require
+  CPU features from the build host.
 - It is **not Secure Boot signed**; disable Secure Boot or enroll your own keys.
-- Verified in VirtualBox on UEFI and BIOS, including live desktop, install,
-  GRUB boot, SDDM login, locale, and input method.
+- Earlier images were verified in VirtualBox on UEFI and BIOS, including live
+  desktop, Calamares install, GRUB boot, SDDM login, locale, and input method.
+  For the 2026-11-14 netinstall image the live boot and installer payload were
+  exercised, but the full Calamares install has not been repeated yet.
 - Test builds are intentionally not committed; publish the ISO as a release
   artifact through your own storage if needed.
