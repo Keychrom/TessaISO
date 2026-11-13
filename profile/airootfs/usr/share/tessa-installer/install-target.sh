@@ -16,5 +16,5 @@ pacstrap -C /etc/pacman.d/tessa-install.conf "$root" \
 
 cp -a /usr/share/tessa-installer/overlay/. "$root/"
 cp /usr/share/tessa-installer/setup.sh "$root/rootfs-setup.sh"
-arch-chroot "$root" /rootfs-setup.sh
+arch-chroot "$root" /bin/bash /rootfs-setup.sh
 rm -f "$root/rootfs-setup.sh"

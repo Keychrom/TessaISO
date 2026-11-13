@@ -181,6 +181,7 @@ install -d "$INSTALLER_DIR/repo" "$INSTALLER_DIR/overlay/etc/skel" \
 grep -vE '^[[:space:]]*(#|$)' "$ISO_DIR/rootfs/packages.x86_64" \
     > "$INSTALLER_DIR/packages"
 cp "$ISO_DIR/rootfs/setup.sh" "$INSTALLER_DIR/setup.sh"
+chmod 0755 "$INSTALLER_DIR/setup.sh"
 cp -a "$ISO_DIR/profile/airootfs/etc/skel/." "$INSTALLER_DIR/overlay/etc/skel/"
 install -m644 "$ISO_DIR/profile/airootfs/etc/environment" \
     "$INSTALLER_DIR/overlay/etc/environment"
