@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
-GTK_IM_MODULE=fcitx
+# Leave GTK_IM_MODULE unset so GTK picks Wayland text-input or XIM.
 QT_IM_MODULE=fcitx
 XMODIFIERS=@im=fcitx
 SDL_IM_MODULE=fcitx
-export GTK_IM_MODULE QT_IM_MODULE XMODIFIERS SDL_IM_MODULE
+export QT_IM_MODULE XMODIFIERS SDL_IM_MODULE

@@ -1,5 +1,6 @@
 LANG=ja_JP.UTF-8
-GTK_IM_MODULE=fcitx
+# Leave GTK_IM_MODULE unset: GTK uses Wayland text-input on Wayland and
+# XIM on X11. Forcing fcitx here makes IME depend on the optional fcitx5-gtk.
 QT_IM_MODULE=fcitx
 XMODIFIERS=@im=fcitx
 SDL_IM_MODULE=fcitx
